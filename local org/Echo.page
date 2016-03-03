@@ -1,0 +1,19 @@
+<apex:page controller="EchoController" tabStyle="Account">
+    <apex:sectionHeader title="Remote echoes" />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Say something:</apex:outputLabel>
+                    <apex:inputText value="{!requestText}" />
+                </apex:pageBlockSectionItem>
+                <apex:commandButton value="Send request" action="{!sendRequest}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1" 
+                                   title="Server response" 
+                                   rendered="{!NOT(ISBLANK(responseText))}">
+                <apex:outputText value="{!responseText}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
